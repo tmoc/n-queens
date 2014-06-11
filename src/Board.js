@@ -77,28 +77,14 @@
     // ROWS - run from left to right
     // --------------------------------------------------------------
     //
-    // test if a specific array (row, col, diagonal) on this board contains a conflict
-    hasConflictAt: function(array) {
-      var pieces = 0;
-      for (var i = 0; i < array.length; i++) {
-        if (pieces > 1) {
-          return true;
-        } else if (array[i] === 1) {
-          pieces++;
-        }
-      }
-      return false;
+    // test if a specific row on this board contains a conflict
+    hasRowConflictAt: function(rowIndex) {
+      return false; // fixme
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      var rows = this.rows();
-      for (var i = 0; i < rows.length; i++) {
-        if (this.hasConflictAt(rows[i])) {
-          return true;
-        }
-      }
-      return false;
+      return false; // fixme
     },
 
 
@@ -106,30 +92,14 @@
     // COLUMNS - run from top to bottom
     // --------------------------------------------------------------
     //
+    // test if a specific column on this board contains a conflict
+    hasColConflictAt: function(colIndex) {
+      return false; // fixme
+    },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      var rows = this.rows();
-      var colIdxs = rows.length;
-      var col = [];
-
-      //loop through all columns
-      for (var i = 0; i < colIdxs; i++) {
-        var colNum = i;
-        //loop through each row
-        for (var j = 0; j < rows.length; j++) {
-          var rowNum = j;
-          //select the cell of each row at the column index and push it into our col array
-          col.push(rows[rowNum][colNum]);
-        }
-        if (this.hasConflictAt(col)) {
-          return true;
-        } else {
-          col = [];
-        }
-      }
-
-      return false;
+      return false; // fixme
     },
 
 
