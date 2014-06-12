@@ -88,13 +88,16 @@
 
       var pieces = 0;
       for (var i = 0; i < row.length; i++) {
-        if (pieces > 1) {
-          return true;
-        } else if (row[i] === 1) {
+        if (row[i] === 1) {
           pieces++;
         }
       }
-      return false;
+
+      if (pieces > 1) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
     // test if any rows on this board contain conflicts
@@ -124,15 +127,16 @@
       var pieces = 0;
 
       for (var i = 0; i < rows.length; i++) {
-        if (pieces > 1) {
-          return true;
-        }
+
         if (rows[i][colIndex] === 1) {
           pieces += 1;
         }
       }
-
-      return false;
+      if (pieces > 1) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
     // test if any columns on this board contain conflicts
@@ -165,17 +169,17 @@
 
       //loop through each ROW
       for (var i = 0; i < rows.length; i++) {
-        if (pieces > 1) {
-          return true;
-        } else {
-          colIndex++;
-        }
+        colIndex++;
         if (rows[i][colIndex] === 1) {
           pieces += 1;
         }
       }
+      if (pieces > 1) {
+        return true;
+      } else {
+        return false;
+      }
 
-      return false;
     },
 
     // test if any major diagonals on this board contain conflicts
@@ -208,17 +212,16 @@
 
       //loop through each ROW
       for (var i = 0; i < rows.length; i++) {
-        if (pieces > 1) {
-          return true;
-        } else {
-          colIndex--;
-        }
+        colIndex--;
         if (rows[i][colIndex] === 1) {
           pieces += 1;
         }
       }
-
-      return false;
+      if (pieces > 1) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
     // test if any minor diagonals on this board contain conflicts

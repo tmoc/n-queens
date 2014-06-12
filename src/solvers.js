@@ -21,13 +21,14 @@ window.findNRooksSolution = function(n, startRow, startCol) {
 
   if (rows.length === 1) {
     board.togglePiece(0,0);
+    console.log('Single solution for ' + n + ' rooks:', JSON.stringify(board.rows()));
     return board.rows();
   }
 
   //loop through rows
-  for (var i = 0; i < rows.length; i++) {
+  for (var i = 0; i < n; i++) {
     //loop through cells
-    for (var j = 0; j < rows.length; j++) {
+    for (var j = 0; j < n; j++) {
       if (pieces === n) {
         console.log('Single solution for ' + n + ' rooks:', JSON.stringify(board.rows()));
         return board.rows();
@@ -43,8 +44,12 @@ window.findNRooksSolution = function(n, startRow, startCol) {
       }
     }
   }
-
-  return false;
+  if (pieces === n) {
+    console.log('Single solution for ' + n + ' rooks:', JSON.stringify(board.rows()));
+    return board.rows();
+  } else {
+    return null;
+  }
 
 };
 
@@ -97,15 +102,19 @@ window.findNQueensSolution = function(n) {
       //check if there are any conflicts
       if ( board.hasAnyQueenConflictsOn(i, j) ) {
         //if yes, remove the piece from the spot
+        //debugger;
         board.togglePiece(i, j);
       } else {
         pieces++;
       }
     }
   }
-
-  return false;
-
+  if (pieces === n) {
+    console.log('Single solution for ' + n + ' queens:', JSON.stringify(board.rows()));
+    return board.rows();
+  } else {
+    return null;
+  }
 };
 
 
