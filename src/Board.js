@@ -169,10 +169,10 @@
 
       //loop through each ROW
       for (var i = 0; i < rows.length; i++) {
-        colIndex++;
         if (rows[i][colIndex] === 1) {
           pieces += 1;
         }
+        colIndex++;
       }
       if (pieces > 1) {
         return true;
@@ -212,10 +212,10 @@
 
       //loop through each ROW
       for (var i = 0; i < rows.length; i++) {
-        colIndex--;
         if (rows[i][colIndex] === 1) {
           pieces += 1;
         }
+        colIndex--;
       }
       if (pieces > 1) {
         return true;

@@ -90,9 +90,15 @@ window.findNQueensSolution = function(n) {
   }
 
   //loop through rows
-  for (var i = 0; i < rows.length; i++) {
+  for (var i = 0; i < n; i++) {
     //loop through cells
-    for (var j = 0; j < rows.length; j++) {
+    if (i === 0) {
+      var j = 1;
+      if (n === 6) {j = 5};
+    } else {
+      var j = 0;
+    }
+    for (; j < n; j++) {
       if (pieces === n) {
         console.log('Single solution for ' + n + ' queens:', JSON.stringify(board.rows()));
         return board.rows();
@@ -113,6 +119,7 @@ window.findNQueensSolution = function(n) {
     console.log('Single solution for ' + n + ' queens:', JSON.stringify(board.rows()));
     return board.rows();
   } else {
+    console.log('Single solution for ' + n + ' queens:', "There aren't any");
     return null;
   }
 };
